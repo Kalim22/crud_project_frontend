@@ -230,6 +230,7 @@ const Home: React.FC = () => {
 
             {/* Pop up modal delete product */}
             <OverlayModal isOpen={isDeleteOpen} onClose={onDeleteClose} onSubmit={(e: React.FormEvent) => handleDelete(e, selectedProduct?.productId)} modalTitle='Are your sure want to delete?' primaryButtonText='Delete'>
+                <p></p>
             </OverlayModal>
 
         </section>
