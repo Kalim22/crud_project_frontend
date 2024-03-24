@@ -7,6 +7,7 @@ import Headers from '../components/Headers'
 import { useDisclosure } from '@chakra-ui/react'
 import OverlayModal from '../components/Modal'
 import InputField from '../components/InputField'
+import { url } from '../assets/constants'
 
 type textValue = {
   firstName: '',
@@ -34,7 +35,7 @@ const Authentication: React.FC = () => {
   const fetchAllUsers = async (): Promise<any> => {
     try {
       setLoading(true)
-      const res = await fetch("http://localhost:8000/apiv1/get-all-users/", {
+      const res = await fetch(`${url}/apiv1/get-all-users/`, {
         method: 'GET'
       })
       const data = await res.json()
@@ -50,7 +51,7 @@ const Authentication: React.FC = () => {
     e.preventDefault()
     try {
       setLoading(true)
-      const res = await fetch("http://localhost:8000/apiv1/add-new-user/", {
+      const res = await fetch(`${url}/apiv1/add-new-user/`, {
         method: "POST",
         headers: {
           'Content-type': 'application/json'

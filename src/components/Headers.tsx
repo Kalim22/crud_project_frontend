@@ -32,15 +32,18 @@ const Headers: React.FC<Props> = ({ onOpen, primaryButtonText, background }) => 
   return (
     <header>
       <div className='username'>
-        <Text
-          bgGradient="linear(to-l, #9BB2E5, #698CBF)"
-          bgClip="text"
-          fontSize="3xl"
-          fontWeight="extrabold"
-        >
-          {`${authValue?.firstName?.charAt(0).toUpperCase()}`+`${authValue?.firstName?.substring(1, authValue?.firstName?.length)}`}
-          {` ${authValue?.lastName?.charAt(0).toUpperCase()}`+`${authValue?.lastName?.substring(1, authValue?.lastName?.length)}`}
-        </Text>
+        {
+          authValue ?
+            <Text
+              bgGradient="linear(to-l, #9BB2E5, #698CBF)"
+              bgClip="text"
+              fontSize="3xl"
+              fontWeight="extrabold"
+            >
+              {`${authValue?.firstName?.charAt(0).toUpperCase()}` + `${authValue?.firstName?.substring(1, authValue?.firstName?.length)}`}
+              {` ${authValue?.lastName?.charAt(0).toUpperCase()}` + `${authValue?.lastName?.substring(1, authValue?.lastName?.length)}`}
+            </Text> : null
+        }
       </div>
       <div className='headers__btns'>
         <Button _hover={{ background: 'blue.700', color: 'white' }} color="white" background={background || "green"} onClick={onOpen}>{primaryButtonText}</Button>

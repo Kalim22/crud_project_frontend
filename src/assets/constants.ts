@@ -1,0 +1,1 @@
+export let url: String = "https://crud-project-backend-j2tw.onrender.com"

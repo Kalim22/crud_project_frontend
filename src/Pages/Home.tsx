@@ -6,6 +6,7 @@ import Loader from '../components/Loader'
 import InputField from '../components/InputField'
 import TableHeader from '../components/TableHeader'
 import TableBody from '../components/TableBody'
+import { url } from '../assets/constants'
 
 type bodyData = {
     name: string,
@@ -53,7 +54,7 @@ const Home: React.FC = () => {
     const fetchAllProducts = async (): Promise<any> => {
         try {
             setLoading(true)
-            const res = await fetch("http://localhost:8000/apiv1/get-all-products/", {
+            const res = await fetch(`${url}/apiv1/get-all-products/`, {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json'
@@ -74,7 +75,7 @@ const Home: React.FC = () => {
             setLoading(true)
             let date = new Date()
             const userValue = JSON.parse(localStorage.getItem('crudauth') || '""')
-            const res = await fetch("http://localhost:8000/apiv1/add-new-product/", {
+            const res = await fetch(`${url}/apiv1/add-new-product/`, {
                 method: 'POST',
                 headers: {
                     "Content-type": 'application/json'
@@ -110,7 +111,7 @@ const Home: React.FC = () => {
         e.preventDefault()
         try {
             setLoading(true)
-            const res = await fetch(`http://localhost:8000/apiv1/delete-product?id=${id}`, {
+            const res = await fetch(`${url}/apiv1/delete-product?id=${id}`, {
                 method: "DELETE",
                 redirect: "follow"
             })
@@ -134,7 +135,7 @@ const Home: React.FC = () => {
             });
 
 
-            const res = await fetch(`http://localhost:8000/apiv1/edit-product/?id=${id}`, {
+            const res = await fetch(`${url}/apiv1/edit-product/?id=${id}`, {
                 method: "PUT",
                 headers: {
                     'Content-type': 'application/json'
